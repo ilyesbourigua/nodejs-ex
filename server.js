@@ -2,8 +2,16 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
-    
-Object.assign=require('object-assign')
+var developer = [
+  {firstName: 'Alice', lastName:'Wonderland'},
+  {firstName: 'Marley', lastName:'Wonderland'},
+  {firstName: 'BOB', lastName:'Wonderland'},
+  {firstName: 'Dan', lastName:'Wonderland'},
+]
+app.get('/rest/developer/:index', function (req, res) {
+  res.json(developer[req.params.index]);
+})
+    Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
