@@ -4,14 +4,12 @@ var express = require('express'),
     morgan  = require('morgan');
     
 Object.assign=require('object-assign')
-app.get('/',function (req, res) {
-  res.send('hello world');
-});
+
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
     mongoURLLabel = "";
 
